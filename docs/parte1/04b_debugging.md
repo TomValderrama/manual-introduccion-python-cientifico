@@ -1,5 +1,8 @@
 # Errores y debugging
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/04b_debugging.ipynb)
+
+
 Cuando Python encuentra un problema, detiene la ejecución y muestra un **traceback** — el rastro del error. Saber leer ese mensaje es la habilidad más práctica para trabajar con código: ahorra tiempo y evita buscar soluciones al problema equivocado.
 
 ## Anatomía de un traceback

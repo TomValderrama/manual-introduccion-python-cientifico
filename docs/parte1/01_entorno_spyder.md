@@ -1,5 +1,8 @@
 # Entorno de desarrollo
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/01_fundamentos.ipynb)
+
+
 Python se puede escribir y ejecutar desde varios entornos. Cada uno tiene un perfil distinto — la elección depende del tipo de tarea y del momento del proyecto.
 
 ## Comparativa de entornos

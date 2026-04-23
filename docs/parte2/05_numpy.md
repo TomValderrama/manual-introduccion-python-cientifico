@@ -1,5 +1,8 @@
 # NumPy
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/05_numpy.ipynb)
+
+
 NumPy es la librería fundamental para cálculo numérico en Python. Su estructura central es el **array**: un arreglo multidimensional de valores del mismo tipo, mucho más eficiente que una lista de Python para operaciones matemáticas.
 
 ```python

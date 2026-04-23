@@ -1,5 +1,8 @@
 # Lectura de archivos
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/07_lectura_archivos.ipynb)
+
+
 Un pipeline de datos científicos lee de múltiples fuentes y formatos: CSV de dataloggers, Excel de procesamiento, archivos `.mat` de MATLAB, y documentos Word para extracción de metadata.
 
 ## Archivos de texto y CSV

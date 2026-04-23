@@ -1,5 +1,8 @@
 # Sintaxis básica
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/02_sintaxis.ipynb)
+
+
 Python es un lenguaje de tipado dinámico e indentado. No necesita declarar tipos de variables ni usar llaves `{}` para delimitar bloques — la estructura del código se define por la indentación.
 
 ## Variables y tipos

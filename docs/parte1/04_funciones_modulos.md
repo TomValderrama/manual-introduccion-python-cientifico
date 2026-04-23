@@ -1,5 +1,8 @@
 # Funciones y módulos
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/04_funciones.ipynb)
+
+
 ## Funciones
 
 ### ¿Por qué hacer una función?

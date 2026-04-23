@@ -1,5 +1,8 @@
 # Gráficos interactivos y el event loop
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/10b_graficos_interactivos.ipynb)
+
+
 Matplotlib puede mostrar figuras estáticas, abrir ventanas interactivas con zoom y pan, responder a clics del usuario, y generar animaciones. Cada uno de estos modos tiene restricciones técnicas que conviene entender antes de mezclarlos en un script.
 
 ## El event loop — por qué existe la limitación

@@ -1,5 +1,8 @@
 # Figuras para informes
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/10_figuras.ipynb)
+
+
 En un pipeline de informes automatizados las figuras no solo se visualizan en Spyder, sino que se guardan como archivos PNG para luego insertarlas en el informe Word. Esto implica cuidar resolución, tamaño, fuente y nomenclatura de archivos.
 
 ## Estilo consistente

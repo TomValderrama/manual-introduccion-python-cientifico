@@ -1,5 +1,8 @@
 # Entornos virtuales con conda
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/01c_conda.ipynb)
+
+
 ## ¿Qué es un entorno virtual?
 
 Un entorno virtual es una instalación aislada de Python con sus propios paquetes. Sin entornos, todos los proyectos comparten los mismos paquetes instalados en el Python global — lo que inevitablemente genera conflictos: el proyecto A necesita numpy 1.24, el proyecto B necesita numpy 2.0, y no pueden coexistir en la misma instalación.

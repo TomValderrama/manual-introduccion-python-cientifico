@@ -1,5 +1,8 @@
 # Spyder vs VSCode
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/01b_entornos.ipynb)
+
+
 Spyder es el mejor punto de partida para análisis de datos: es simple, tiene Variable Explorer y está pensado para trabajar con datos desde el primer día. VSCode es más potente como editor y se adapta mejor cuando el código crece en proyectos multi-archivo.
 
 Este capítulo compara ambos entornos y explica cómo hacer la transición cuando conviene.
