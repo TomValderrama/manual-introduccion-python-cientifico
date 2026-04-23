@@ -1,0 +1,46 @@
+site_name: "Introducción a Python Científico"
+site_description: "Fundamentos, manejo de datos y visualización para ciencias"
+site_author: Tomás Valderrama
+site_url: https://tomvalderrama.github.io/manual-introduccion-python-cientifico/
+theme:
+  name: material
+  language: es
+  palette:
+    primary: teal
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+
+extra_css:
+  - extra.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+
+nav:
+  - Inicio: index.md
+  - Parte I — Fundamentos:
+    - parte1/01_entorno_spyder.md
+    - parte1/01b_spyder_vs_vscode.md
+    - parte1/01c_entornos_conda.md
+    - parte1/02_sintaxis.md
+    - parte1/03_control_flujo.md
+    - parte1/04_funciones_modulos.md
+    - parte1/04b_debugging.md
+  - Parte II — Manejo de datos:
+    - parte2/05_numpy.md
+    - parte2/06_pandas.md
+    - parte2/07_lectura_archivos.md
+  - Parte III — Visualización:
+    - parte3/08_matplotlib.md
+    - parte3/09_rosas_polares.md
+    - parte3/10_figuras_informes.md
+    - parte3/10b_graficos_interactivos.md

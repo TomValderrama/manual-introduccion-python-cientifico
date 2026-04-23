@@ -1,0 +1,29 @@
+% ── TOC: más espacio para números de sección anchos como "15.10" ──────────
+\usepackage{tocloft}
+\setlength{\cftsubsecnumwidth}{3.5em}
+\setlength{\cftsecnumwidth}{2.2em}
+
+% ── Código: cortar líneas largas en vez de salirse del margen ─────────────
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
+  breaklines,breakanywhere,commandchars=\\\{\}}
+
+% ── Cada sección H1 empieza en página nueva ───────────────────────────────
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+% ── Prevenir encabezados y tablas huérfanos al final de página ────────────
+\usepackage{needspace}
+\usepackage{etoolbox}
+
+% Subsección sola al pie de página: forzar salto si no hay al menos 4 líneas
+\preto{\subsection}{\needspace{4\baselineskip}}
+\preto{\subsubsection}{\needspace{3\baselineskip}}
+
+% Tabla sin espacio para ninguna fila: mover tabla entera a la página siguiente
+\AtBeginEnvironment{longtable}{\needspace{8\baselineskip}}
+
+% Bloques de código que empiezan al final de la página: moverlos si no hay 8 líneas libres.
+% Shaded = bloques con lenguaje (python, bash…); verbatim = bloques sin lenguaje (diagramas ASCII).
+\BeforeBeginEnvironment{Shaded}{\needspace{8\baselineskip}}
+\BeforeBeginEnvironment{verbatim}{\needspace{8\baselineskip}}
