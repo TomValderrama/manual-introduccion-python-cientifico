@@ -1,0 +1,1835 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fundamentos, manejo de datos y visualización para ciencias">
+      
+      
+        <meta name="author" content="Tomás Valderrama">
+      
+      
+        <link rel="canonical" href="https://tomvalderrama.github.io/manual-introduccion-python-cientifico/parte1/01_entorno_spyder/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../01b_spyder_vs_vscode/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Entorno de desarrollo - Introducción a Python Científico</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#entorno-de-desarrollo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Introducción a Python Científico" class="md-header__button md-logo" aria-label="Introducción a Python Científico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción a Python Científico
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entorno de desarrollo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Parte I — Fundamentos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../parte2/05_numpy/" class="md-tabs__link">
+          
+  
+  
+  Parte II — Manejo de datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../parte3/08_matplotlib/" class="md-tabs__link">
+          
+  
+  
+  Parte III — Visualización
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Introducción a Python Científico" class="md-nav__button md-logo" aria-label="Introducción a Python Científico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción a Python Científico
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte I — Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte I — Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparativa-de-entornos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa de entornos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-interfaz-de-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La interfaz de Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecutar código
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-edicion-esenciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de edición esenciales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celdas-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celdas de código
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consola-ipython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consola IPython
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración recomendada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración recomendada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-cada-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar cada backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-vs-qt5-por-que-tkinter-es-mas-estable-en-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tkinter vs Qt5 — por qué Tkinter es más estable en Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VSCode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-sobre-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ventajas sobre Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-conviene-migrar-a-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo conviene migrar a VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-explorer-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterlab-y-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JupyterLab y Jupyter Notebook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JupyterLab y Jupyter Notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones-de-jupyter-para-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitaciones de Jupyter para producción
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pycharm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyCharm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Colab
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01b_spyder_vs_vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spyder vs VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01c_entornos_conda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entornos virtuales con conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis básica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_control_flujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_funciones_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funciones y módulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04b_debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errores y debugging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte II — Manejo de datos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte II — Manejo de datos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/05_numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/06_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/07_lectura_archivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectura de archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte III — Visualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte III — Visualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/08_matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matplotlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/09_rosas_polares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rosas de viento y diagramas polares
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/10_figuras_informes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figuras para informes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/10b_graficos_interactivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gráficos interactivos y el event loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparativa-de-entornos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa de entornos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-interfaz-de-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La interfaz de Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecutar código
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-edicion-esenciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de edición esenciales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#celdas-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celdas de código
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consola-ipython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consola IPython
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-recomendada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración recomendada
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración recomendada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-cada-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar cada backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-vs-qt5-por-que-tkinter-es-mas-estable-en-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tkinter vs Qt5 — por qué Tkinter es más estable en Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VSCode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-sobre-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ventajas sobre Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-conviene-migrar-a-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo conviene migrar a VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-explorer-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterlab-y-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JupyterLab y Jupyter Notebook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JupyterLab y Jupyter Notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones-de-jupyter-para-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitaciones de Jupyter para producción
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pycharm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyCharm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Colab
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="entorno-de-desarrollo">Entorno de desarrollo</h1>
+<p><a href="https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/01_fundamentos.ipynb"><img alt="Abrir en Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Python se puede escribir y ejecutar desde varios entornos. Cada uno tiene un perfil distinto — la elección depende del tipo de tarea y del momento del proyecto.</p>
+<h2 id="comparativa-de-entornos">Comparativa de entornos</h2>
+<table>
+<thead>
+<tr>
+<th>Entorno</th>
+<th>Mejor para</th>
+<th>Instalación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spyder</strong></td>
+<td>Análisis interactivo, explorar datos, perfil científico</td>
+<td>Anaconda</td>
+</tr>
+<tr>
+<td><strong>VSCode</strong></td>
+<td>Proyectos multi-archivo, Git, scripts de producción</td>
+<td>Descarga directa</td>
+</tr>
+<tr>
+<td><strong>JupyterLab</strong></td>
+<td>Reportes con código + texto, compartir resultados</td>
+<td><code>pip install jupyterlab</code></td>
+</tr>
+<tr>
+<td><strong>Google Colab</strong></td>
+<td>Sin instalación, acceso a GPU, colaboración</td>
+<td>Solo navegador</td>
+</tr>
+</tbody>
+</table>
+<p>Este capítulo se enfoca en <strong>Spyder</strong>, que es el más adecuado para empezar: tiene Variable Explorer integrado, permite ejecutar código por secciones y está diseñado específicamente para análisis de datos. Las secciones al final del capítulo describen cuándo conviene cambiar a VSCode o Jupyter.</p>
+<h2 id="spyder">Spyder</h2>
+<p>Spyder es el entorno de desarrollo recomendado para análisis científico en Python. A diferencia de otros editores, está diseñado específicamente para trabajar con datos: tiene un explorador de variables integrado, una consola interactiva y permite ejecutar código por secciones.</p>
+<h2 id="instalacion">Instalación</h2>
+<p>La forma más sencilla es instalar <strong>Anaconda</strong>, que incluye Python, Spyder y las librerías científicas principales:</p>
+<p><a href="https://www.anaconda.com/download">https://www.anaconda.com/download</a></p>
+<h2 id="la-interfaz-de-spyder">La interfaz de Spyder</h2>
+<p>Spyder tiene tres paneles principales:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────┬──────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                     │  Variable Explorer   │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│      Editor         │  (variables activas) │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│    (tu código)      ├──────────────────────┤
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│                     │  Consola IPython     │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│                     │  (resultados)        │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└─────────────────────┴──────────────────────┘
+</code></pre></div>
+<ul>
+<li><strong>Editor</strong>: donde escribes y guardas tu script <code>.py</code></li>
+<li><strong>Consola IPython</strong>: donde se ejecuta el código y se muestran resultados</li>
+<li><strong>Variable Explorer</strong>: muestra todas las variables activas, sus tipos y valores — muy útil para inspeccionar DataFrames y arrays</li>
+</ul>
+<h2 id="ejecutar-codigo">Ejecutar código</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Atajo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ejecutar el script completo</td>
+<td><code>F5</code></td>
+</tr>
+<tr>
+<td>Ejecutar la línea actual</td>
+<td><code>F9</code></td>
+</tr>
+<tr>
+<td>Ejecutar una selección</td>
+<td>Seleccionar + <code>F9</code></td>
+</tr>
+<tr>
+<td>Ejecutar una celda</td>
+<td><code>Ctrl + Enter</code></td>
+</tr>
+<tr>
+<td>Ejecutar celda y avanzar</td>
+<td><code>Shift + Enter</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="atajos-de-edicion-esenciales">Atajos de edición esenciales</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Atajo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comentar / descomentar selección</td>
+<td><code>Ctrl + 1</code></td>
+</tr>
+<tr>
+<td>Insertar separador de celda <code># %%</code></td>
+<td><code>Ctrl + 2</code></td>
+</tr>
+<tr>
+<td>Duplicar línea</td>
+<td><code>Ctrl + D</code></td>
+</tr>
+<tr>
+<td>Mover línea arriba / abajo</td>
+<td><code>Alt + ↑ / ↓</code></td>
+</tr>
+<tr>
+<td>Buscar en el archivo</td>
+<td><code>Ctrl + F</code></td>
+</tr>
+<tr>
+<td>Ir a definición de función</td>
+<td><code>Ctrl + G</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>Ctrl + 1</code> es especialmente útil para desactivar temporalmente un bloque de código sin borrarlo. <code>Ctrl + 2</code> inserta un <code># %%</code> en la posición del cursor, creando una nueva celda ejecutable en ese punto.</p>
+<h2 id="celdas-de-codigo">Celdas de código</h2>
+<p>Las celdas permiten dividir el script en bloques ejecutables de forma independiente, similar a un notebook pero dentro de un archivo <code>.py</code> normal.</p>
+<p>Se definen con <code># %%</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># %% Cargar datos</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corrientes.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># %% Graficar</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;velocidad&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>Cada bloque <code># %%</code> se puede ejecutar por separado con <code>Ctrl + Enter</code>. Esto es muy útil para procesar datos paso a paso sin reejecutar todo el script.</p>
+<h2 id="variable-explorer">Variable Explorer</h2>
+<p>El explorador de variables muestra en tiempo real:</p>
+<ul>
+<li>Nombre y tipo de cada variable</li>
+<li>Dimensiones de arrays y DataFrames</li>
+<li>Vista previa de los valores</li>
+</ul>
+<p>Se puede hacer doble clic en un DataFrame para abrirlo en una tabla interactiva, o en un array para ver su contenido completo.</p>
+<h2 id="consola-ipython">Consola IPython</h2>
+<p>La consola acepta comandos directos sin necesidad de estar en el editor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Ver las primeras filas de un DataFrame</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Ver el tipo de una variable</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Obtener ayuda de una función</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># o más rápido:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="err">?</span>
+</code></pre></div>
+<h2 id="configuracion-recomendada">Configuración recomendada</h2>
+<p>Algunas opciones útiles en <strong>Tools → Preferences</strong>:</p>
+<ul>
+<li><strong>Editor → mostrar números de línea</strong>: facilita depuración</li>
+<li><strong>IPython console → Graphics → Backend: Inline</strong>: los gráficos aparecen en la consola (recomendado para análisis)</li>
+<li><strong>IPython console → Graphics → Backend: Tkinter</strong>: cada gráfico abre en ventana separada, liviana e interactiva (zoom, pan, guardar)</li>
+<li><strong>IPython console → Graphics → Backend: Qt5</strong>: similar a Tkinter pero más pesado; en algunos equipos es lento o inestable</li>
+</ul>
+<p>También se puede cambiar el backend por sesión desde la consola sin tocar las preferencias:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>   <span class="c1"># figuras en consola</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">tk</span>       <span class="c1"># ventana Tkinter interactiva</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">qt5</span>      <span class="c1"># ventana Qt5</span>
+</code></pre></div>
+<h3 id="cuando-usar-cada-backend">Cuándo usar cada backend</h3>
+<table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Backend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explorar datos, iterar rápido</td>
+<td>Inline</td>
+</tr>
+<tr>
+<td>Revisar figura con zoom o hacer clics sobre ella</td>
+<td>Tkinter</td>
+</tr>
+<tr>
+<td>Script automático que solo guarda PNG</td>
+<td><code>matplotlib.use('Agg')</code> antes de importar pyplot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tkinter-vs-qt5-por-que-tkinter-es-mas-estable-en-spyder">Tkinter vs Qt5 — por qué Tkinter es más estable en Spyder</h3>
+<p>Spyder está construido sobre Qt5 (PyQt5). Cuando se usa el backend Qt5Agg, matplotlib intenta crear ventanas Qt5 dentro del mismo event loop que ya está usando Spyder — pueden producirse conflictos, ventanas lentas o cierres inesperados.</p>
+<p>Tkinter tiene su propio event loop completamente independiente de Qt, por eso no interfiere con Spyder.</p>
+<p>En <strong>VSCode</strong> este problema no existe: VSCode está hecho en Electron (Chromium), no en Qt. El backend Qt5Agg abre ventanas Qt5 de forma independiente y funciona sin conflictos.</p>
+<p>Otra causa de ventanas que "se congelan": si el script hace procesamiento pesado (imágenes, OCR, cálculos largos) en el mismo hilo que la ventana gráfica, el event loop no puede responder a clics mientras Python está ocupado. Esto ocurre con cualquier backend, pero Qt5 lo manifiesta más visiblemente.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tkinter</th>
+<th>Qt5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integración con Spyder</td>
+<td>Sin conflictos</td>
+<td>Puede interferir con el event loop</td>
+</tr>
+<tr>
+<td>Integración con VSCode</td>
+<td>Bien</td>
+<td>Bien</td>
+</tr>
+<tr>
+<td>Peso</td>
+<td>Liviano, incluido en Python</td>
+<td>Pesado, requiere PyQt5/PySide2</td>
+</tr>
+<tr>
+<td>Widgets interactivos</td>
+<td>Básicos (zoom, pan, guardar)</td>
+<td>Avanzados (sliders, botones personalizados)</td>
+</tr>
+<tr>
+<td>Uso recomendado</td>
+<td>Backend interactivo general</td>
+<td>Herramientas con interfaz propia</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Recomendación</p>
+<p>Usar <strong>Inline</strong> como predeterminado en Spyder. Cambiar a <strong>Tkinter</strong> cuando se necesita interactividad. Qt5 solo tiene ventaja real si se construye una interfaz con botones o controles propios, y en ese caso es mejor trabajar en VSCode o en un script independiente fuera de Spyder.</p>
+</div>
+<h2 id="vscode">VSCode</h2>
+<p>Visual Studio Code es un editor de propósito general con soporte de primera clase para Python. No está diseñado específicamente para análisis de datos, pero tiene ventajas claras cuando el proyecto crece.</p>
+<p><strong>Instalar</strong>: <a href="https://code.visualstudio.com">code.visualstudio.com</a>. Luego instalar la extensión <strong>Python</strong> (Microsoft) y opcionalmente <strong>Pylance</strong> para autocompletado avanzado.</p>
+<h3 id="ventajas-sobre-spyder">Ventajas sobre Spyder</h3>
+<ul>
+<li><strong>Editor más potente</strong>: autocompletado inteligente entre archivos, ir a definición entre módulos, refactoring, buscar y reemplazar en todo el proyecto</li>
+<li><strong>Git integrado</strong>: diff visual, historial de commits, blame por línea, sin salir del editor</li>
+<li><strong>Terminal real</strong>: bash/WSL integrado directamente, útil para correr scripts, git, pandoc</li>
+<li><strong>Multi-archivo</strong>: navegación entre archivos de un paquete Python es mucho más fluida</li>
+<li><strong>Sin conflicto Qt5</strong>: VSCode usa Electron (no Qt), por lo que el backend Qt5Agg de matplotlib funciona sin interferencias</li>
+<li><strong>Extensiones</strong>: SSH remoto (trabajar en servidores Linux), Jupyter, Docker, soporte para otros lenguajes en el mismo proyecto</li>
+</ul>
+<h3 id="cuando-conviene-migrar-a-vscode">Cuándo conviene migrar a VSCode</h3>
+<ul>
+<li>El proyecto tiene varios archivos <code>.py</code> que se importan entre sí</li>
+<li>Se trabaja con Git activamente</li>
+<li>Se desarrolla una herramienta con interfaz interactiva (matplotlib + clicks, sliders)</li>
+<li>Se necesita conectarse a un servidor remoto (cluster para CROCO, por ejemplo)</li>
+</ul>
+<h3 id="variable-explorer-en-vscode">Variable Explorer en VSCode</h3>
+<p>VSCode no tiene un Variable Explorer tan completo como Spyder. La alternativa es usar el modo <strong>Jupyter</strong> (celdas <code># %%</code> con el kernel interactivo), que muestra variables y permite inspeccionarlas. Para DataFrames, <code>df.head()</code> o <code>df.describe()</code> en la terminal interactiva cumplen el mismo rol.</p>
+<h2 id="jupyterlab-y-jupyter-notebook">JupyterLab y Jupyter Notebook</h2>
+<p>Jupyter permite mezclar código Python, texto explicativo (Markdown) y resultados (gráficos, tablas) en un mismo documento interactivo llamado <strong>notebook</strong> (<code>.ipynb</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>jupyter<span class="w"> </span>lab<span class="w">   </span><span class="c1"># abre en el navegador</span>
+</code></pre></div>
+<h3 id="cuando-usar-jupyter">Cuándo usar Jupyter</h3>
+<ul>
+<li><strong>Exploración inicial de datos nuevos</strong>: ver los datos, graficar, entender la estructura</li>
+<li><strong>Reportes reproducibles</strong>: compartir análisis donde el lector puede ver el código y los resultados juntos</li>
+<li><strong>Tutoriales y documentación</strong>: la mayoría de tutoriales de xarray, pandas, geopandas están en notebooks</li>
+<li><strong>Colaboración</strong>: Google Colab permite compartir y ejecutar notebooks sin instalar nada</li>
+</ul>
+<h3 id="limitaciones-de-jupyter-para-produccion">Limitaciones de Jupyter para producción</h3>
+<p>Los notebooks tienen desventajas cuando el código madura:</p>
+<ul>
+<li>El orden de ejecución de celdas puede ser arbitrario — un notebook con celdas ejecutadas fuera de orden produce resultados incorrectos sin avisar</li>
+<li>Difíciles de versionar con Git (el formato <code>.ipynb</code> incluye outputs, lo que genera diffs enormes)</li>
+<li>No se pueden importar como módulos desde otros scripts</li>
+<li>La refactorización y navegación entre archivos es más limitada</li>
+</ul>
+<p><strong>Regla práctica</strong>: usar Jupyter para explorar y comunicar resultados; convertir el código útil a scripts <code>.py</code> para producción.</p>
+<h2 id="pycharm">PyCharm</h2>
+<p>PyCharm (JetBrains) es un IDE profesional orientado al desarrollo de software en Python. Tiene herramientas avanzadas de refactoring, depuración y gestión de proyectos que lo hacen muy popular en desarrollo de aplicaciones y backend.</p>
+<p>Para análisis de datos y scripting científico no es la primera opción: no tiene Variable Explorer, su curva de aprendizaje es mayor, y la versión completa es de pago (existe una Community Edition gratuita). Se menciona aquí porque es frecuente encontrarlo en tutoriales y comparativas, pero no se cubre en este manual — para el tipo de trabajo que se describe, Spyder y VSCode cubren mejor el espectro.</p>
+<h2 id="google-colab">Google Colab</h2>
+<p>Jupyter en la nube de Google. No requiere instalar nada — solo un navegador y cuenta de Google.</p>
+<ul>
+<li>URL: <a href="https://colab.research.google.com">colab.research.google.com</a></li>
+<li>Acceso gratuito a GPU (útil para modelos de deep learning o procesamiento de imágenes pesado)</li>
+<li>Se integra con Google Drive para leer y guardar archivos</li>
+<li>Ideal para compartir análisis con alguien que no tiene Python instalado</li>
+</ul>
+<p>La limitación principal: la sesión se desconecta después de un tiempo de inactividad y los datos temporales se pierden. Para trabajo continuo es mejor un entorno local.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

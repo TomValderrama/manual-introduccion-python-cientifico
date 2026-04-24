@@ -1,0 +1,1696 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fundamentos, manejo de datos y visualización para ciencias">
+      
+      
+        <meta name="author" content="Tomás Valderrama">
+      
+      
+        <link rel="canonical" href="https://tomvalderrama.github.io/manual-introduccion-python-cientifico/parte1/01b_spyder_vs_vscode/">
+      
+      
+        <link rel="prev" href="../01_entorno_spyder/">
+      
+      
+        <link rel="next" href="../01c_entornos_conda/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Spyder vs VSCode - Introducción a Python Científico</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spyder-vs-vscode" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Introducción a Python Científico" class="md-header__button md-logo" aria-label="Introducción a Python Científico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción a Python Científico
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spyder vs VSCode
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_entorno_spyder/" class="md-tabs__link">
+          
+  
+  
+  Parte I — Fundamentos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../parte2/05_numpy/" class="md-tabs__link">
+          
+  
+  
+  Parte II — Manejo de datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../parte3/08_matplotlib/" class="md-tabs__link">
+          
+  
+  
+  Parte III — Visualización
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Introducción a Python Científico" class="md-nav__button md-logo" aria-label="Introducción a Python Científico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción a Python Científico
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte I — Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte I — Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_entorno_spyder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spyder vs VSCode
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spyder vs VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-este-manual-usa-spyder-y-no-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por qué este manual usa Spyder y no Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparativa-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa directa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-distincion-mas-importante-pipeline-interactivo-vs-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La distinción más importante: pipeline interactivo vs estático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-quedarse-en-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo quedarse en Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-usar-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar VSCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-vscode-para-analisis-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar VSCode para análisis de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurar VSCode para análisis de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-minima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación mínima
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccionar-el-interprete-de-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleccionar el intérprete de Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celdas-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celdas # %% en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-explorer-equivalente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer equivalente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-el-backend-de-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar el backend de matplotlib
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atajos-equivalentes-a-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos equivalentes a Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jupyter en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-mixto-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo mixto recomendado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flujo mixto recomendado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-salir-del-ide-y-correr-desde-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo salir del IDE y correr desde terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01c_entornos_conda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entornos virtuales con conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis básica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_control_flujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_funciones_modulos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funciones y módulos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04b_debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Errores y debugging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte II — Manejo de datos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte II — Manejo de datos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/05_numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/06_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte2/07_lectura_archivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectura de archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte III — Visualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte III — Visualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/08_matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matplotlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/09_rosas_polares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rosas de viento y diagramas polares
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/10_figuras_informes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figuras para informes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte3/10b_graficos_interactivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gráficos interactivos y el event loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-este-manual-usa-spyder-y-no-jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por qué este manual usa Spyder y no Jupyter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparativa-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa directa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-distincion-mas-importante-pipeline-interactivo-vs-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La distinción más importante: pipeline interactivo vs estático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-quedarse-en-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo quedarse en Spyder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-usar-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo usar VSCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-vscode-para-analisis-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar VSCode para análisis de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurar VSCode para análisis de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-minima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación mínima
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccionar-el-interprete-de-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleccionar el intérprete de Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#celdas-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Celdas # %% en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-explorer-equivalente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Explorer equivalente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-el-backend-de-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar el backend de matplotlib
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atajos-equivalentes-a-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos equivalentes a Spyder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter-en-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jupyter en VSCode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-mixto-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo mixto recomendado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flujo mixto recomendado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-salir-del-ide-y-correr-desde-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuándo salir del IDE y correr desde terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="spyder-vs-vscode">Spyder vs VSCode</h1>
+<p><a href="https://colab.research.google.com/github/TomValderrama/manual-introduccion-python-cientifico/blob/main/notebooks/01b_entornos.ipynb"><img alt="Abrir en Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Spyder es el mejor punto de partida para análisis de datos: es simple, tiene Variable Explorer y está pensado para trabajar con datos desde el primer día. VSCode es más potente como editor y se adapta mejor cuando el código crece en proyectos multi-archivo.</p>
+<p>Este capítulo compara ambos entornos y explica cómo hacer la transición cuando conviene.</p>
+<h2 id="por-que-este-manual-usa-spyder-y-no-jupyter">Por qué este manual usa Spyder y no Jupyter</h2>
+<p>Jupyter es muy popular en ciencia de datos, y es probable que lo encuentres en tutoriales y papers. Sin embargo, para el tipo de trabajo que cubre este manual — pipelines de procesamiento, automatización de informes, análisis reproducibles — Spyder con scripts <code>.py</code> tiene ventajas concretas sobre notebooks <code>.ipynb</code>.</p>
+<p><strong>El problema de estado de los notebooks</strong></p>
+<p>En Jupyter, las celdas se pueden ejecutar en cualquier orden. Esto crea "estado oculto": variables que existen en memoria de corridas anteriores, resultados que dependen del orden en que ejecutaste las celdas, comportamiento que no se puede reproducir corriendo el notebook de arriba a abajo. En un análisis corto de exploración no importa; en un pipeline de producción es una fuente de errores difíciles de detectar.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Celda 1</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datos.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Celda 3 (ejecutada antes que la 2)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;velocidad&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># modifica df</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Celda 2 (ejecutada después)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>   <span class="c1"># resultado depende del orden de ejecución</span>
+</code></pre></div>
+<p>En un script <code>.py</code> de Spyder el código siempre corre de arriba a abajo. El estado es predecible.</p>
+<p><strong>Los scripts <code>.py</code> son importables, los notebooks no</strong></p>
+<p>Cuando el código madura, se organiza en funciones que se reutilizan entre proyectos. Un script <code>.py</code> se puede importar directamente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">calcular_media_vectorial</span>
+</code></pre></div>
+<p>Un notebook <code>.ipynb</code> no se puede importar sin conversión previa. Esto hace que el código de un notebook quede "atrapado" en él.</p>
+<p><strong>Git funciona bien con <code>.py</code>, mal con <code>.ipynb</code></strong></p>
+<p>Los archivos <code>.ipynb</code> incluyen los outputs (gráficos, tablas) dentro del archivo JSON. Un <code>git diff</code> de un notebook modificado es ilegible. Con scripts <code>.py</code>, los diffs son limpios y el historial de cambios es útil.</p>
+<p><strong>Spyder da lo mismo que Jupyter en lo útil</strong></p>
+<p>Lo que hace atractivo a Jupyter para análisis interactivo — ejecutar código por secciones, ver resultados inmediatamente, inspeccionar variables — también lo tiene Spyder:</p>
+<table>
+<thead>
+<tr>
+<th>Jupyter</th>
+<th>Spyder equivalente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Celdas de código</td>
+<td>Celdas <code># %%</code></td>
+</tr>
+<tr>
+<td>Output inline</td>
+<td>Consola IPython</td>
+</tr>
+<tr>
+<td>Variable inspector</td>
+<td>Variable Explorer (más completo)</td>
+</tr>
+<tr>
+<td>Narrativa en Markdown</td>
+<td>Comentarios en el código</td>
+</tr>
+</tbody>
+</table>
+<p>La diferencia es que en Spyder el código vive en un archivo <code>.py</code> limpio, no en un JSON con outputs embebidos.</p>
+<p><strong>Cuándo sí usar Jupyter</strong></p>
+<p>Jupyter tiene ventajas reales para comunicar resultados: mezclar texto explicativo, código y gráficos en un documento que otros pueden leer y re-ejecutar. Es el formato estándar para papers reproducibles y tutoriales. Si el objetivo es compartir un análisis con alguien que no va a modificar el código, un notebook bien hecho es ideal. Si el objetivo es construir un pipeline que procese datos y se mantenga en el tiempo, un script <code>.py</code> es mejor.</p>
+<hr />
+<h2 id="comparativa-directa">Comparativa directa</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Spyder</th>
+<th>VSCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Variable Explorer</strong></td>
+<td>Integrado, visual, con doble clic en DataFrames</td>
+<td>Requiere modo Jupyter interactivo</td>
+</tr>
+<tr>
+<td><strong>Celdas <code># %%</code></strong></td>
+<td>Nativo, <code>Ctrl+Enter</code> / <code>Shift+Enter</code></td>
+<td>Con extensión Python, funciona igual</td>
+</tr>
+<tr>
+<td><strong>Autocompletado</strong></td>
+<td>Básico</td>
+<td>Avanzado (Pylance: tipos, docstrings, imports)</td>
+</tr>
+<tr>
+<td><strong>Navegación entre archivos</strong></td>
+<td>Limitada</td>
+<td>Ir a definición entre módulos, búsqueda global</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>No integrado</td>
+<td>Diff visual, historial, blame por línea</td>
+</tr>
+<tr>
+<td><strong>Terminal</strong></td>
+<td>Consola IPython</td>
+<td>Terminal bash/WSL real</td>
+</tr>
+<tr>
+<td><strong>Backend Qt5</strong></td>
+<td>Conflicto de event loop</td>
+<td>Sin conflicto (Electron ≠ Qt)</td>
+</tr>
+<tr>
+<td><strong>Refactoring</strong></td>
+<td>Básico</td>
+<td>Renombrar en todo el proyecto, mover código</td>
+</tr>
+<tr>
+<td><strong>Curva de aprendizaje</strong></td>
+<td>Baja</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Instalación</strong></td>
+<td>Anaconda</td>
+<td>Descarga + extensión Python</td>
+</tr>
+</tbody>
+</table>
+<h2 id="la-distincion-mas-importante-pipeline-interactivo-vs-estatico">La distinción más importante: pipeline interactivo vs estático</h2>
+<p>La diferencia real entre Spyder y VSCode no es nivel de experiencia — es el tipo de pipeline:</p>
+<p><strong>Pipeline interactivo</strong>: el procesamiento requiere decisiones humanas en el camino. Cargas los datos, inspeccionas, decides dónde cortar la serie, identificas un offset, limpias anomalías, vuelves a graficar. En este flujo, el Variable Explorer de Spyder no es una rueda de entrenamiento — es una herramienta de trabajo. Ver el DataFrame en tiempo real, hacer doble clic para abrirlo como tabla, comparar shapes antes y después de un filtro: todo eso acelera el trabajo de procesamiento interactivo.</p>
+<p><strong>Pipeline estático</strong>: el código corre de principio a fin sin intervención. Leer archivos, procesar, generar figuras, exportar resultados. Aquí Spyder no agrega valor — un script ejecutado desde la terminal de VSCode hace exactamente lo mismo con mejor soporte de proyecto y Git.</p>
+<h2 id="cuando-quedarse-en-spyder">Cuándo quedarse en Spyder</h2>
+<ul>
+<li>El procesamiento requiere inspeccionar y tomar decisiones sobre los datos (offset, recortes, limpieza manual)</li>
+<li>Usas el Variable Explorer activamente para ver el estado intermedio de arrays y DataFrames</li>
+<li>El flujo es exploratorio: cargar, graficar, ajustar, volver a graficar</li>
+<li>Trabajas con un dataset por vez y el script cabe en un archivo</li>
+</ul>
+<h2 id="cuando-usar-vscode">Cuándo usar VSCode</h2>
+<ul>
+<li>El pipeline corre completo sin intervención (genera figuras, exporta, automatiza)</li>
+<li>El proyecto tiene varios módulos que se importan entre sí</li>
+<li>Usas Git activamente y quieres diffs sin salir del editor</li>
+<li>Desarrollas herramientas con interfaz (matplotlib interactivo, Qt5) sin conflictos de event loop</li>
+<li>Necesitas conectarte a un servidor remoto (extensión Remote-SSH)</li>
+<li>El código ya está maduro y entra en fase de mantenimiento</li>
+</ul>
+<h2 id="configurar-vscode-para-analisis-de-datos">Configurar VSCode para análisis de datos</h2>
+<h3 id="instalacion-minima">Instalación mínima</h3>
+<ol>
+<li>Descargar VSCode: <a href="https://code.visualstudio.com">code.visualstudio.com</a></li>
+<li>Instalar extensiones:</li>
+<li><strong>Python</strong> (Microsoft) — soporte base</li>
+<li><strong>Pylance</strong> — autocompletado avanzado con inferencia de tipos</li>
+</ol>
+<h3 id="seleccionar-el-interprete-de-python">Seleccionar el intérprete de Python</h3>
+<p><code>Ctrl+Shift+P</code> → "Python: Select Interpreter" → elegir el Python de Anaconda (<code>conda base</code> o el entorno que uses).</p>
+<h3 id="celdas-en-vscode">Celdas <code># %%</code> en VSCode</h3>
+<p>Las celdas funcionan exactamente igual que en Spyder. Con la extensión Python instalada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># %% Cargar datos</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corrientes.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># %% Graficar</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;velocidad&#39;</span><span class="p">])</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li><code>Shift+Enter</code> ejecuta la celda y avanza</li>
+<li><code>Ctrl+Enter</code> ejecuta la celda sin avanzar</li>
+<li>Se abre un panel "Jupyter Interactive" donde aparecen los outputs</li>
+</ul>
+<h3 id="variable-explorer-equivalente">Variable Explorer equivalente</h3>
+<p>El panel Jupyter Interactive muestra las variables activas. También se puede:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># En la celda, inspeccionar directamente</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>        <span class="c1"># muestra las primeras filas como tabla</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>        <span class="c1"># tipos de columnas</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>    <span class="c1"># estadísticas</span>
+</code></pre></div>
+<p>Para abrir un DataFrame como tabla visual: instalar la extensión <strong>Data Wrangler</strong> (Microsoft).</p>
+<h3 id="configurar-el-backend-de-matplotlib">Configurar el backend de matplotlib</h3>
+<p>En VSCode, el backend inline se activa automáticamente en el modo interactivo. Para ventanas separadas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">tk</span>    <span class="c1"># Tkinter — funciona bien</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">%</span><span class="n">matplotlib</span> <span class="n">qt5</span>   <span class="c1"># Qt5 — también funciona bien (sin conflicto con VSCode)</span>
+</code></pre></div>
+<h3 id="atajos-equivalentes-a-spyder">Atajos equivalentes a Spyder</h3>
+<p><strong>Ejecución y edición</strong></p>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Spyder</th>
+<th>VSCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ejecutar celda</td>
+<td><code>Ctrl+Enter</code></td>
+<td><code>Shift+Enter</code></td>
+</tr>
+<tr>
+<td>Ejecutar celda y avanzar</td>
+<td><code>Shift+Enter</code></td>
+<td><code>Shift+Enter</code></td>
+</tr>
+<tr>
+<td>Ejecutar selección</td>
+<td><code>F9</code></td>
+<td><code>Shift+Enter</code> (con selección)</td>
+</tr>
+<tr>
+<td>Comentar / descomentar</td>
+<td><code>Ctrl+1</code></td>
+<td><code>Ctrl+/</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navegación y búsqueda</strong></p>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Spyder</th>
+<th>VSCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ir a definición</td>
+<td><code>Ctrl+G</code></td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>Buscar en archivo</td>
+<td><code>Ctrl+F</code></td>
+<td><code>Ctrl+F</code></td>
+</tr>
+<tr>
+<td>Buscar en todo el proyecto</td>
+<td>—</td>
+<td><code>Ctrl+Shift+F</code></td>
+</tr>
+<tr>
+<td>Paleta de comandos</td>
+<td>—</td>
+<td><code>Ctrl+Shift+P</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="terminal-integrado">Terminal integrado</h3>
+<p><code>Ctrl+ñ</code> (o `Ctrl+``) abre una terminal bash/WSL real dentro de VSCode. Útil para correr scripts completos, git, o herramientas de línea de comandos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>generar_informe.py
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>bash<span class="w"> </span>publicar.sh
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
+</code></pre></div>
+<h2 id="jupyter-en-vscode">Jupyter en VSCode</h2>
+<p>VSCode soporta notebooks <code>.ipynb</code> nativamente. Para abrir o crear uno: <code>Ctrl+Shift+P</code> → "Create new Jupyter Notebook".</p>
+<p>La ventaja sobre JupyterLab clásico: el editor de VSCode (autocompletado, Pylance) funciona dentro de las celdas del notebook.</p>
+<h2 id="flujo-mixto-recomendado">Flujo mixto recomendado</h2>
+<p>No es necesario elegir uno y abandonar el otro. La combinación más práctica:</p>
+<ol>
+<li><strong>Procesamiento interactivo en Spyder</strong>: inspeccionar datos, identificar problemas, tomar decisiones (offset, recortes, limpieza). El Variable Explorer hace este trabajo más rápido.</li>
+<li><strong>Pipeline automático en VSCode + terminal</strong>: cuando el procesamiento ya está definido y corre sin intervención. Ejecutar desde terminal, gestionar Git, mantener el proyecto multi-archivo.</li>
+<li><strong>Git en VSCode</strong>: commits, diffs visuales, historial — independientemente de dónde se escribió el código.</li>
+</ol>
+<p>El código funciona igual en ambos entornos. Lo que cambia es qué tan cómodo es cada flujo de trabajo según la etapa del proyecto.</p>
+<h3 id="cuando-salir-del-ide-y-correr-desde-terminal">Cuándo salir del IDE y correr desde terminal</h3>
+<p>Hay casos en que Spyder y VSCode se interponen en vez de ayudar:</p>
+<ul>
+<li><strong>Script con menú de procesamiento</strong> (<code>input()</code> en un loop): Spyder ejecuta en un kernel IPython que no maneja bien la entrada interactiva en modo batch.</li>
+<li><strong>GUI propia con matplotlib o Tkinter</strong>: el IDE ya tiene un event loop corriendo; abrir otro genera conflictos. TkAgg suele funcionar en Spyder con <code>%matplotlib tk</code>, pero Qt5Agg frecuentemente no.</li>
+<li><strong>Combinación de ambos</strong> (menú + ventana gráfica): ningún backend funciona de forma confiable dentro del IDE.</li>
+</ul>
+<p>En esos casos la solución es correr el script directamente desde una terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># PowerShell o cmd (usa el Python de Windows, TkAgg nativo)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>python<span class="w"> </span>mi_script.py
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Terminal WSL (requiere WSLg en Windows 11, o un servidor X en Windows 10)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>python<span class="w"> </span>mi_script.py
+</code></pre></div>
+<p>El script toma control del proceso completo: puede pedir input, abrir ventanas y cerrarlas sin conflicto con el IDE. Ver cap. 10b para el patrón <code>plt.ion()</code> + <code>plt.pause()</code> que permite combinar un menú de texto con figuras interactivas.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
