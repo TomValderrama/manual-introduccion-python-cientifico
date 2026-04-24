@@ -20,4 +20,4 @@ pip install numpy pandas matplotlib scipy openpyxl windrose
 
 ## ¿Qué sigue?
 
-Este manual cubre los fundamentos. Para análisis más específicos — estadísticas circulares, FFT, automatización de informes, datos geoespaciales, modelos oceánicos y datos satelitales — ver el [Manual Avanzado](https://tomvalderrama.github.io/manual-python-oceanografia/).
+Este manual cubre los fundamentos. Para análisis más específicos — estadísticas circulares, FFT, automatización de informes, datos geoespaciales, modelos oceánicos y datos satelitales — ver el [Manual Avanzado](https://tomvalderrama.github.io/manual/).
